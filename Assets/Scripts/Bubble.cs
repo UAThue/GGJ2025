@@ -7,6 +7,7 @@ public class Bubble : MonoBehaviour
     [HideInInspector] public BubbleRing owningRing = null;
     [HideInInspector] public DistanceJoint2D joint;
     [HideInInspector] public Collider2D collider;
+    public GameObject popParticle;
 
     void Awake()
     {
@@ -66,8 +67,6 @@ public class Bubble : MonoBehaviour
 
                 // Stop trying to stick to others (but they can stick to us)
                 isMeStickToOthers = false;
-
-
             }
         }
     }
@@ -82,16 +81,18 @@ public class Bubble : MonoBehaviour
         }
         else
         {
-            // Release the chain, and (for now) Pop all bubbles down the chain 
-            if (joint.connectedBody != null)
-            {
-                // Turn off collision
-                collider.enabled = false;
-                joint.enabled = false;
+            // Turn off collision
+            collider.enabled = false;
+            joint.enabled = false;
 
-                //TODO: Play an animation and prepare to destroy this bubble when the animation ends - for now, destroy
-                Destroy(this.gameObject);
-            }
+            //Particles and prepare to destroy this bubble when the animation ends - for now, destroy
+            GameObject particles = Instantiate<GameObject>(popParticle, transform.position, transform.rotation);
+            Destroy(particles, 0.2f);
+
+            // TODO: Play sound
+
+            // Destroy this object
+            Destroy(this.gameObject);
         }
     }
 }
