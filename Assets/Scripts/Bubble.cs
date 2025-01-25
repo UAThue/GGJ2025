@@ -89,7 +89,8 @@ public class Bubble : MonoBehaviour
             GameObject particles = Instantiate<GameObject>(popParticle, transform.position, transform.rotation);
             Destroy(particles, 0.2f);
 
-            // TODO: Play sound
+            // Play sound
+            float pitchShift = Random.Range(-1f, 1f);
 
             // Destroy this object
             Destroy(this.gameObject);
