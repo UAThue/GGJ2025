@@ -48,9 +48,15 @@ MonoBehaviour:
   UIShotIndicatorPool: {fileID: 0}
   spawnSpinner: {fileID: 1169985764852580533}
   spawnPosition: {fileID: 498194203615770982}
-  NeedleProjectilePrefab: {fileID: 4313463918677972899, guid: f584d3779df558141aa2b18c128370e0, type: 3}
-  BubbleProjectilePrefab: {fileID: 3019215982108291939, guid: dc4363591257a054b890e7b759daa5dc, type: 3}
-  NeutralProjectilePrefab: {fileID: 4674020466827199063, guid: bba800225f8652f4c84de66ad6c77855, type: 3}
+  NeedleProjectilePrefab: {fileID: 8148489462575322495, guid: a6a89bee55ec3f74e86c689c0373b9b8, type: 3}
+  minScaleNeedle: 0.2
+  maxScaleNeedle: 0.4
+  BubbleProjectilePrefab: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
+  minScaleBubble: 0.3
+  maxScaleBubble: 0.55
+  NeutralProjectilePrefab: {fileID: 807504727016456804, guid: 2e3d78ea4092b86439be3e5889892879, type: 3}
+  minScaleNeutral: 0.3
+  maxScaleNeutral: 0.55
   currentMinSpawnTime: 3
   currentMaxSpawnTime: 5
   lowestPossibleSpawnTime: 0.5

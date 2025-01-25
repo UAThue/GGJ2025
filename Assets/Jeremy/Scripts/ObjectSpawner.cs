@@ -8,10 +8,14 @@ public class ObjectSpawner : MonoBehaviour
 
     public Transform spawnPosition;
     public GameObject NeedleProjectilePrefab;
+    public float minScaleNeedle;
+    public float maxScaleNeedle;
     public GameObject BubbleProjectilePrefab;
     public float minScaleBubble;
     public float maxScaleBubble;
     public GameObject NeutralProjectilePrefab;
+    public float minScaleNeutral;
+    public float maxScaleNeutral;
     public enum spawnShotType
 	{
         bubble,
@@ -91,10 +95,14 @@ public class ObjectSpawner : MonoBehaviour
                     case 1:
                         GameObject needleSpawned  = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
                         UIShotIndicatorPool.Shot(spawnShotType.needle, randAngle);
+                        float needScale = Random.Range(minScaleNeedle, maxScaleNeedle);
+                        needleSpawned.transform.localScale = new Vector3(needScale, needScale, needScale);
                         break;
                     case 2:
                         GameObject neutralSpawned  = GameObject.Instantiate(NeutralProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
                         UIShotIndicatorPool.Shot(spawnShotType.neutral, randAngle);
+                        float neutScale = Random.Range(minScaleNeutral, maxScaleNeutral);
+                        neutralSpawned.transform.localScale = new Vector3(neutScale, neutScale, neutScale);
                         break;
                 }
             }

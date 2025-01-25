@@ -10,6 +10,10 @@ public class Bubble : MonoBehaviour
     public GameObject popParticle;
     public MoveAtSpeed mover;
 
+    //Used for cleanup
+    private Bubble myConnectedBubble;
+    private bool cleanup;
+
     void Awake()
     {
         // Make sure we have a collider, set it to enabled and NOT a trigger (so we get a link point)
@@ -25,7 +29,13 @@ public class Bubble : MonoBehaviour
 
     void Update()
     {
-        
+        if(cleanup == true)
+		{
+            if(myConnectedBubble==null)
+			{
+                Destroy(this.gameObject);
+			}
+		}
     }
     public void SafeLinkSprings(Bubble target)
     {
@@ -63,6 +73,10 @@ public class Bubble : MonoBehaviour
                     // Link the joint to the bubble we are connecting to
                     SafeLinkSprings(otherBubble);
 
+                    //Create a connection for alter
+                    myConnectedBubble = otherBubble;
+                    cleanup = true;
+
                     // Set distance based on size of this bubble! so we stick to edge?
                     joint.autoConfigureDistance = false;
                     joint.enableCollision = true;
@@ -84,7 +98,7 @@ public class Bubble : MonoBehaviour
 
     public void Pop()
     {
-        //TODO: In the future, maybe, if we are part of a ring, we should close the ring instead of releasing the down the chain. 
+        //TODO: In the future, maybe, if we are part of a ring, we should pop one, and then close the ring instead of instant death 
         if (owningRing != null)
         {
             // Remove from ring, too.

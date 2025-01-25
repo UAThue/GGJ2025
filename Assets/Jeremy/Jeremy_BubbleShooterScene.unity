@@ -251,29 +251,21 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
-      propertyPath: maxScaleBubble
-      value: 0.55
+      propertyPath: maxScaleNeedle
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
-      propertyPath: minScaleBubble
-      value: 0.35
+      propertyPath: minScaleNeedle
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
       propertyPath: UIShotIndicatorPool
       value: 
       objectReference: {fileID: 1236920114}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
-      propertyPath: BubbleProjectilePrefab
-      value: 
-      objectReference: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
-    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
-      propertyPath: NeedleProjectilePrefab
-      value: 
-      objectReference: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
-    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
       propertyPath: NeutralProjectilePrefab
       value: 
-      objectReference: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
+      objectReference: {fileID: 807504727016456804, guid: 2e3d78ea4092b86439be3e5889892879, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -287,6 +279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1643810934}
     m_Modifications:
+    - target: {fileID: 2720511763169334235, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6955921887335514227, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -366,6 +362,10 @@ PrefabInstance:
     - target: {fileID: 6955921887335514227, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965844932780622926, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8879504828382979728, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_Name
