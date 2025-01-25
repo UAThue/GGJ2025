@@ -8,6 +8,8 @@ public class Bubble : MonoBehaviour
     [HideInInspector] public DistanceJoint2D joint;
     [HideInInspector] public Collider2D collider;
 
+    public MoveAtSpeed mover;
+
     void Awake()
     {
         // Make sure we have a collider, set it to enabled and NOT a trigger (so we get a link point)
@@ -18,6 +20,7 @@ public class Bubble : MonoBehaviour
         // Get our own spring joint
         joint = gameObject.GetComponent<DistanceJoint2D>();
         if (joint == null) joint = gameObject.AddComponent<DistanceJoint2D>();
+        joint.enabled = false;
     }
 
     void Update()
@@ -53,7 +56,7 @@ public class Bubble : MonoBehaviour
         if (otherBubble != null)
         {
             // And we stick to bubbles
-            if (isMeStickToOthers)
+            if (isMeStickToOthers && otherBubble.isMeStickToOthers == false)
             {
                 // Link the joint to the bubble we are connecting to
                 SafeLinkSprings(otherBubble);
@@ -67,7 +70,10 @@ public class Bubble : MonoBehaviour
                 // Stop trying to stick to others (but they can stick to us)
                 isMeStickToOthers = false;
 
-
+                if(mover!=null)
+				{
+                    mover.move = false;
+				}
             }
         }
     }
