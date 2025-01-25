@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d9891d9458f514d882afac543a6cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMeStickToOthers: 0
+  isMeStickToOthers: 1
   owningRing: {fileID: 0}
   joint: {fileID: 0}
   collider: {fileID: 0}

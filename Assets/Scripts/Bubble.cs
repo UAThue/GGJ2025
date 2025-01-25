@@ -44,6 +44,7 @@ public class Bubble : MonoBehaviour
 
         // Activate joint
         joint.enabled = true;
+        Debug.Log("joint");
     }
 
 
@@ -52,28 +53,30 @@ public class Bubble : MonoBehaviour
     {
         // If we hit a bubble
         Bubble otherBubble = collision.gameObject.GetComponent<Bubble>();
-
-        if (otherBubble != null && otherBubble!=isMeStickToOthers)
+        if (otherBubble != null)
         {
-            // And we stick to bubbles
-            if (isMeStickToOthers)
+            if (otherBubble.isMeStickToOthers == false)
             {
-                // Link the joint to the bubble we are connecting to
-                SafeLinkSprings(otherBubble);
-
-                // Set distance based on size of this bubble! so we stick to edge?
-                joint.autoConfigureDistance = false;
-                joint.enableCollision = true;
-                joint.maxDistanceOnly = true;
-                joint.distance = Vector3.Distance(transform.position, collision.GetContact(0).point) + Vector3.Distance(otherBubble.transform.position, collision.GetContact(0).point);
-
-                // Stop trying to stick to others (but they can stick to us)
-                isMeStickToOthers = false;
-
-                //Stop moving if there's a mover
-                if (mover != null)
+                // And we stick to bubbles
+                if (isMeStickToOthers)
                 {
-                    mover.move = false;
+                    // Link the joint to the bubble we are connecting to
+                    SafeLinkSprings(otherBubble);
+
+                    // Set distance based on size of this bubble! so we stick to edge?
+                    joint.autoConfigureDistance = false;
+                    joint.enableCollision = true;
+                    joint.maxDistanceOnly = true;
+                    joint.distance = Vector3.Distance(transform.position, collision.GetContact(0).point) + Vector3.Distance(otherBubble.transform.position, collision.GetContact(0).point);
+
+                    // Stop trying to stick to others (but they can stick to us)
+                    isMeStickToOthers = false;
+
+                    //Stop moving if there's a mover
+                    if (mover != null)
+                    {
+                        mover.move = false;
+                    }
                 }
             }
         }
