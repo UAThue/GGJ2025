@@ -251,9 +251,29 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: maxScaleBubble
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: minScaleBubble
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
       propertyPath: UIShotIndicatorPool
       value: 
       objectReference: {fileID: 1236920114}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: BubbleProjectilePrefab
+      value: 
+      objectReference: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: NeedleProjectilePrefab
+      value: 
+      objectReference: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: NeutralProjectilePrefab
+      value: 
+      objectReference: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

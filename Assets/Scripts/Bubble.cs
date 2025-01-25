@@ -20,6 +20,7 @@ public class Bubble : MonoBehaviour
         // Get our own spring joint
         joint = gameObject.GetComponent<DistanceJoint2D>();
         if (joint == null) joint = gameObject.AddComponent<DistanceJoint2D>();
+        joint.enabled = false;
     }
 
     void Update()
