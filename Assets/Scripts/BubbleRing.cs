@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class BubbleRing : Pawn
 {
+    [Header("Prefabs")]
     public GameObject bubblePrefab;
+    public GameObject cat;
+    [Header("Options")]
     public float radius = 5.0f;
     public int numObjects = 10;
     public float bubbleOutwardForce = 1.0f;
-    public GameObject cat;
+    [HideInInspector] public bool stickyRing = false;
 
     // Private Vars
-    private List<Bubble> ring;
+    [HideInInspector] public List<Bubble> ring;
     private Vector3 currentCenter; // Currently the center of the rings - find it every update
 
     void Start()
@@ -62,9 +65,7 @@ public class BubbleRing : Pawn
         }
         
     }
-
-
-    public void MoveRings(Vector3 direction)
+        public void MoveRings(Vector3 direction)
     {
         // Move every bubble
         for (int i = 0; i < ring.Count; i++)
@@ -108,7 +109,13 @@ public class BubbleRing : Pawn
 
             // Instantiate the objects and add to list
             GameObject theBubbleObject = Instantiate(prefab, position, Quaternion.identity, parent.transform);
+
+            // TODO: Scale the bubbles by a random tiny amount (0.9 to 1.1) to make more appealing
+
+            // Add to list
             Bubble theBubble = theBubbleObject.GetComponent<Bubble>();
+            theBubble.owningRing = this;
+            theBubble.isMeStickToOthers = stickyRing;
             theRing.Add(theBubble);
         }
 
@@ -128,4 +135,14 @@ public class BubbleRing : Pawn
             ring[i].SafeLinkSprings(ring[i - 1]);
         }
     }
+
+    public void PopAll()
+    {
+        for (int i=0; i < ring.Count; i++)
+        {
+            ring[i].owningRing = null;
+            ring[i].Pop();
+        }
+    }
+
 }

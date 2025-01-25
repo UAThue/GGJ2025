@@ -4,12 +4,14 @@ using UnityEngine;
 public class Bubble : MonoBehaviour
 {
     public bool isMeStickToOthers;
+    [HideInInspector] public BubbleRing owningRing = null;
     private DistanceJoint2D joint;
+    private Collider2D collider;
 
     void Awake()
     {
         // Make sure we have a collider, set it to enabled and NOT a trigger (so we get a link point)
-        Collider2D collider = gameObject.GetComponent<Collider2D>();
+        collider = gameObject.GetComponent<Collider2D>();
         collider.enabled = true;
         collider.isTrigger = false;
 
@@ -68,12 +70,28 @@ public class Bubble : MonoBehaviour
 
             }
         }
-        
-
-
-
-
     }
 
+    public void Pop()
+    {
+        //TODO: In the future, maybe, if we are part of a ring, we should close the ring instead of releasing the down the chain. 
+        if (owningRing != null)
+        {
+            // Remove from ring, too.
+            owningRing.PopAll();
+        }
+        else
+        {
+            // Release the chain, and (for now) Pop all bubbles down the chain 
+            if (joint.connectedBody != null)
+            {
+                // Turn off collision
+                collider.enabled = false;
+                joint.enabled = false;
 
+                //TODO: Play an animation and prepare to destroy this bubble when the animation ends - for now, destroy
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }
