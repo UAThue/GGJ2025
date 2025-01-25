@@ -169,8 +169,9 @@ MonoBehaviour:
   rotationSpeed: 180
   bubblePrefab: {fileID: 120848119032034372, guid: 77410ea9bf35c1842883f0bf7feb4815, type: 3}
   cat: {fileID: 1629305651}
-  catUp: {fileID: -1087065472737216863, guid: 94a809a8b5ca7584cb77a1d66797342d, type: 3}
-  catDown: {fileID: 21300000, guid: 046ab7987177554418754924188055d7, type: 3}
+  catUp: {fileID: 21300000, guid: 94a809a8b5ca7584cb77a1d66797342d, type: 3}
+  catNeutral: {fileID: 21300000, guid: 046ab7987177554418754924188055d7, type: 3}
+  catDown: {fileID: 21300000, guid: eff37d9787089ec4eb3280c6f7aa19a9, type: 3}
   radius: 1
   numObjects: 10
   bubbleOutwardForce: 10

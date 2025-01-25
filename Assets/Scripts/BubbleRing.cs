@@ -8,6 +8,7 @@ public class BubbleRing : Pawn
     public GameObject bubblePrefab;
     public GameObject cat;
     public Sprite catUp;
+    public Sprite catNeutral;
     public Sprite catDown;
     [Header("Options")]
     public float radius = 5.0f;
@@ -104,6 +105,9 @@ public class BubbleRing : Pawn
             else if (moveVector.y < -0.1f)
             {
                 cat.GetComponent<SpriteRenderer>().sprite = catDown;
+            } else
+            {
+                cat.GetComponent<SpriteRenderer>().sprite = catNeutral;
             }
 
 

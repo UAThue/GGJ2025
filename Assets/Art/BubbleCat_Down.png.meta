@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 94a809a8b5ca7584cb77a1d66797342d
+guid: eff37d9787089ec4eb3280c6f7aa19a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1087065472737216863
-    second: BubbleCat_Up_0
+      213: -5726032211971074682
+    second: BubbleCat_Down_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BubbleCat_Up_0
+      name: BubbleCat_Down_0
       rect:
         serializedVersion: 2
-        x: 352
-        y: 144
-        width: 1387
-        height: 2435
+        x: 542
+        y: 776
+        width: 1197
+        height: 1803
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a6f7e946b7f9e0f0800000000000000
-      internalID: -1087065472737216863
+      spriteID: 68515018a0c0980b0800000000000000
+      internalID: -5726032211971074682
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BubbleCat_Up_0: -1087065472737216863
+      BubbleCat_Down_0: -5726032211971074682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
