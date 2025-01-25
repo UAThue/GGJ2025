@@ -14,6 +14,7 @@ public class PopOnTouch : MonoBehaviour
         {
             // Pop it
             theBubble.Pop();
+            Destroy(this.gameObject);
         }
 
     }
