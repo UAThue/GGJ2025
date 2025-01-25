@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7609631582502928760}
   - component: {fileID: 2841996212580546473}
   - component: {fileID: 5784684360288595255}
-  - component: {fileID: 5904311901249016524}
+  - component: {fileID: 2007113704377658018}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: LooseBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -153,8 +153,8 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!231 &5904311901249016524
-SpringJoint2D:
+--- !u!232 &2007113704377658018
+DistanceJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -162,15 +162,14 @@ SpringJoint2D:
   m_GameObject: {fileID: 120848119032034372}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_BreakAction: 0
+  m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 0.005
-  m_DampingRatio: 0.95
-  m_Frequency: 1
+  m_Distance: 0.125
+  m_MaxDistanceOnly: 1
