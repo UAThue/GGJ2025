@@ -8,6 +8,7 @@ public class Bubble : MonoBehaviour
     [HideInInspector] public DistanceJoint2D joint;
     [HideInInspector] public Collider2D collider;
     public GameObject popParticle;
+    public MoveAtSpeed mover;
 
     void Awake()
     {
@@ -51,7 +52,7 @@ public class Bubble : MonoBehaviour
         // If we hit a bubble
         Bubble otherBubble = collision.gameObject.GetComponent<Bubble>();
 
-        if (otherBubble != null)
+        if (otherBubble != null && otherBubble!=isMeStickToOthers)
         {
             // And we stick to bubbles
             if (isMeStickToOthers)
@@ -67,6 +68,12 @@ public class Bubble : MonoBehaviour
 
                 // Stop trying to stick to others (but they can stick to us)
                 isMeStickToOthers = false;
+
+                //Stop moving if there's a mover
+                if (mover != null)
+                {
+                    mover.move = false;
+                }
             }
         }
     }
