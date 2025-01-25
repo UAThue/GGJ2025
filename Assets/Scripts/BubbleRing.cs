@@ -11,6 +11,7 @@ public class BubbleRing : Pawn
     public float radius = 5.0f;
     public int numObjects = 10;
     public float bubbleOutwardForce = 1.0f;
+    public float bubbleThickness = 0.5f;
     [HideInInspector] public bool stickyRing = false;
 
     // Private Vars
@@ -110,12 +111,17 @@ public class BubbleRing : Pawn
             // Instantiate the objects and add to list
             GameObject theBubbleObject = Instantiate(prefab, position, Quaternion.identity, parent.transform);
 
-            // TODO: Scale the bubbles by a random tiny amount (0.9 to 1.1) to make more appealing
+            // Scale the bubbles by a random tiny amount (0.9 to 1.1) to make more appealing
+            Vector3 thicknessOffset = Vector3.one * Random.Range(-0.1f, 0.1f);
+
+            // Scale the bubble;
+            theBubbleObject.transform.localScale = (Vector3.one * bubbleThickness) + thicknessOffset;
 
             // Add to list
             Bubble theBubble = theBubbleObject.GetComponent<Bubble>();
             theBubble.owningRing = this;
             theBubble.isMeStickToOthers = stickyRing;
+            theBubble.joint.distance = bubbleThickness;
             theRing.Add(theBubble);
         }
 
@@ -142,6 +148,7 @@ public class BubbleRing : Pawn
         {
             ring[i].owningRing = null;
             ring[i].Pop();
+            ring.RemoveAt(i);
         }
     }
 

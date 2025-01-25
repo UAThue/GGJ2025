@@ -5,8 +5,8 @@ public class Bubble : MonoBehaviour
 {
     public bool isMeStickToOthers;
     [HideInInspector] public BubbleRing owningRing = null;
-    private DistanceJoint2D joint;
-    private Collider2D collider;
+    [HideInInspector] public DistanceJoint2D joint;
+    [HideInInspector] public Collider2D collider;
 
     void Awake()
     {
