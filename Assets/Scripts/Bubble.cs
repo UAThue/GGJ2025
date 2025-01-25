@@ -98,7 +98,7 @@ public class Bubble : MonoBehaviour
 
     public void Pop()
     {
-        //TODO: In the future, maybe, if we are part of a ring, we should close the ring instead of releasing the down the chain. 
+        //TODO: In the future, maybe, if we are part of a ring, we should pop one, and then close the ring instead of instant death 
         if (owningRing != null)
         {
             // Remove from ring, too.

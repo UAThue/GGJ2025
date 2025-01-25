@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264ede860ad200c4ebd825262d92179a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterScene: hueTestScene
+  characterScene: CharacterScene
   spawnerScene: Jeremy_BubbleShooterScene
 --- !u!4 &2064260535
 Transform:
