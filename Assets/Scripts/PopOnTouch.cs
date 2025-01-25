@@ -8,15 +8,19 @@ public class PopOnTouch : MonoBehaviour
     {
         // Get the bubble
         Bubble theBubble = collision.gameObject.GetComponent<Bubble>();
-        
+
         // If it is one
-        if (theBubble != null )
+        if (theBubble != null)
         {
             // Pop it
             theBubble.Pop();
             Destroy(this.gameObject);
         }
 
+        Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
+        if (obstacle != null)
+        {
+            Destroy(this.gameObject);
+        }
     }
-
 }

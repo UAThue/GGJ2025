@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8084653082663080521}
   - component: {fileID: -2894787798721144620}
   - component: {fileID: -3884379586620870260}
-  m_Layer: 0
+  - component: {fileID: -1654577945461225599}
+  m_Layer: 8
   m_Name: Neutral_BubbleMover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,3 +185,15 @@ MonoBehaviour:
   moveSpeed: 400
   myMover: {fileID: -2894787798721144620}
   velocityTest: 1
+--- !u!114 &-1654577945461225599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807504727016456804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9eca353391e1a4787c0127ba8ca97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
