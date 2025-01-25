@@ -7,6 +7,8 @@ public class BubbleRing : Pawn
     [Header("Prefabs")]
     public GameObject bubblePrefab;
     public GameObject cat;
+    public Sprite catUp;
+    public Sprite catDown;
     [Header("Options")]
     public float radius = 5.0f;
     public int numObjects = 10;
@@ -38,11 +40,22 @@ public class BubbleRing : Pawn
     {
         // Find average position - that is our center
         currentCenter = Vector3.zero;
+
         for (int i = 0; i < ring.Count; i++)
         {
-            currentCenter += ring[i].transform.position;
+            if (ring[i] != null)
+            {
+                currentCenter += ring[i].transform.position;
+            }
         }
-        currentCenter /= ring.Count;
+        if (ring.Count > 0)
+        {
+            currentCenter /= ring.Count;
+        }
+        else
+        {
+            currentCenter = Vector3.zero;
+        }
     }
 
     private void FixedUpdate()
@@ -73,6 +86,26 @@ public class BubbleRing : Pawn
         {
             // Start with movement force
             Vector3 moveVector = direction.normalized * moveForce;
+
+            // Flip/Animate Cat
+            if (moveVector.x > 0.1f)
+            {
+                cat.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (moveVector.x < -0.1f)
+            {
+                cat.GetComponent<SpriteRenderer>().flipX = false;
+            }
+
+            if (moveVector.y > 0.1f)
+            {
+                cat.GetComponent<SpriteRenderer>().sprite = catUp;
+            }
+            else if (moveVector.y < -0.1f)
+            {
+                cat.GetComponent<SpriteRenderer>().sprite = catDown;
+            }
+
 
             // Add outward bubble force
             Vector3 vectorToCenter = ring[i].transform.position - currentCenter;
@@ -148,8 +181,10 @@ public class BubbleRing : Pawn
         {
             ring[i].owningRing = null;
             ring[i].Pop();
-            ring.RemoveAt(i);
         }
+
+        // Clear the list 
+        ring.Clear();
     }
 
 }
