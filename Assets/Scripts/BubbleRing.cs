@@ -216,6 +216,7 @@ public class BubbleRing : Pawn
     public void LoadGameOverScreen()
     {
         SceneManager.LoadScene("GameOverScene");
+        GameManager.instance.SetVolume(0.5f);
     }
 
 }

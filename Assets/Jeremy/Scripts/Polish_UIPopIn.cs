@@ -75,7 +75,7 @@ public class Polish_UIPopIn : MonoBehaviour
             }
 
         }            
-        if(timer1>30)
+        if(timer1>45)
 		{
             goneTimer += Time.deltaTime * 4;
             one.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, goneTimer);

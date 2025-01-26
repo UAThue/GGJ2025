@@ -11,5 +11,10 @@ public class MainMenuUI : MonoBehaviour
     public void LoadScene(string sceneName) 
     {
         SceneManager.LoadScene(sceneName);
+        //Hacky as heck
+        if (sceneName == "MainScene")
+        {
+            GameManager.instance.SetVolume(0);
+        }
     }
 }

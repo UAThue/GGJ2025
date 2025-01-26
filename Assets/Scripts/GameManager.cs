@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public ScoreObject scoreObjectPrefab;
 
     private ScoreTimer scoreDisplay;
+    public AudioSource menuMusic;
+    private float menuMusicTargetVolume=0.5f;
 
     private void Awake()
     {
@@ -43,6 +45,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(menuMusic.volume!=menuMusicTargetVolume)
+		{
+            menuMusic.volume = Mathf.MoveTowards(menuMusic.volume, menuMusicTargetVolume, Time.deltaTime);
+		}
     }
 
     public void AddScore (int amount, Vector3 location)
@@ -62,4 +68,9 @@ public class GameManager : MonoBehaviour
         score = 1;
         gameStartTime = Time.time;
     }
+
+    public void SetVolume(float volume)
+	{
+        menuMusicTargetVolume = volume;
+	}
 }
