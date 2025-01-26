@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5784684360288595255}
   - component: {fileID: 2007113704377658018}
   - component: {fileID: -5202641536105755048}
-  - component: {fileID: 4443624498456873264}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -134,24 +133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMeStickToOthers: 0
   owningRing: {fileID: 0}
+  hadAnOwningRing: 0
   joint: {fileID: 0}
   collider: {fileID: 0}
-  popParticle: {fileID: 1348631928614724, guid: 201c82c04ed951941bf7f68e1a07f643, type: 3}
   mover: {fileID: 0}
---- !u!114 &4443624498456873264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120848119032034372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb34a630a01b4284bbe173eacbeedfcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 0.001
-  maxWarble: 0.175
 --- !u!1 &392962145362645326
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +148,6 @@ GameObject:
   - component: {fileID: 1811189559360974744}
   - component: {fileID: 5146871975490038536}
   - component: {fileID: 6290363175344113956}
-  - component: {fileID: 4878263919891076901}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -201,7 +185,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392962145362645326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -239,24 +223,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4878263919891076901
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392962145362645326}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

@@ -72,6 +72,9 @@ public class Bubble : MonoBehaviour
                     // Link the joint to the bubble we are connecting to
                     SafeLinkSprings(otherBubble);
 
+                    // Play our bubble link sound
+                    AudioSource.PlayClipAtPoint(GameManager.instance.bubbleLink, transform.position);
+
                     //Create a connection for alter
                     myConnectedBubble = otherBubble;
                     cleanup = true;

@@ -8,6 +8,7 @@ public class BubbleRing : Pawn
     [Header("Prefabs")]
     public GameObject bubblePrefab;
     public GameObject cat;
+    public GameObject catShadow;
     public Sprite catUp;
     public Sprite catNeutral;
     public Sprite catDown;
@@ -95,10 +96,12 @@ public class BubbleRing : Pawn
             if (moveVector.x > 0.1f)
             {
                 cat.GetComponent<SpriteRenderer>().flipX = true;
+                catShadow.GetComponent<SpriteRenderer>().flipX = true;
             }
             else if (moveVector.x < -0.1f)
             {
                 cat.GetComponent<SpriteRenderer>().flipX = false;
+                catShadow.GetComponent<SpriteRenderer>().flipX = false;
             }
 
             if (moveVector.y > 0.1f)
@@ -151,8 +154,10 @@ public class BubbleRing : Pawn
             // Instantiate the objects and add to list
             GameObject theBubbleObject = Instantiate(prefab, position, Quaternion.identity, parent.transform);
 
-            // Scale the bubbles by a random tiny amount (0.9 to 1.1) to make more appealing
-            Vector3 thicknessOffset = Vector3.one * Random.Range(-0.1f, 0.1f);
+            //  Scale the bubbles by a random tiny amount (0.9 to 1.1) to make more appealing
+            // Note: Removed because bubbles are now invisible for ring - just line renderer used
+            // Vector3 thicknessOffset = Vector3.one * Random.Range(-0.1f, 0.1f);
+            Vector3 thicknessOffset = Vector3.zero;
 
             // Scale the bubble;
             theBubbleObject.transform.localScale = (Vector3.one * bubbleThickness) + thicknessOffset;
