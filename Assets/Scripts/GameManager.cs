@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     public int score;
     public int highScore;
     public float gameStartTime;
-    public float numberOfBubblesCollected;
-    public float numberOfBirdsDefeated;
+    public float pointsPerSecondSurvived;
+    //public float numberOfBubblesCollected;
+    //public float numberOfBirdsDefeated;
 
     [Header("Prefabs")]
     public ScoreObject scoreObjectPrefab;

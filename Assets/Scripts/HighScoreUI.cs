@@ -9,6 +9,9 @@ public class HighScoreUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        float secondsSinceGameStart = Time.time - GameManager.instance.gameStartTime;
+        GameManager.instance.score += Mathf.CeilToInt(GameManager.instance.pointsPerSecondSurvived * secondsSinceGameStart);
+
         UpdateHighScore();   
 
 
