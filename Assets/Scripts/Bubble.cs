@@ -7,8 +7,7 @@ public class Bubble : MonoBehaviour
     [HideInInspector] public BubbleRing owningRing = null;
     [HideInInspector] public bool hadAnOwningRing = false;
     [HideInInspector] public DistanceJoint2D joint;
-    [HideInInspector] public Collider2D collider;
-    public GameObject popParticle;
+    [HideInInspector] public Collider2D collider;    
     public MoveAtSpeed mover;
 
     //Used for cleanup
@@ -111,7 +110,7 @@ public class Bubble : MonoBehaviour
             joint.enabled = false;
 
             //Particles and prepare to destroy this bubble when the animation ends - for now, destroy
-            GameObject particles = Instantiate<GameObject>(popParticle, transform.position, transform.rotation);
+            GameObject particles = Instantiate<GameObject>(GameManager.instance.bubbleExplosion, transform.position, transform.rotation);
             Destroy(particles, 0.2f);
 
             // Play sound

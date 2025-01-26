@@ -6,7 +6,6 @@ public class PopOnTouch : MonoBehaviour
 {
     public bool wall = false;
     public int pointValue = 1;
-    public GameObject featherExplosion;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,16 +29,16 @@ public class PopOnTouch : MonoBehaviour
 
                 if (transform.parent != null)
                 {
+                    Squawk();
                     Destroy(transform.parent.gameObject);
-                    GameObject particles = Instantiate<GameObject>(featherExplosion, transform.position, transform.rotation);
                 }
             }
 
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
             if (obstacle != null)
             {
+                Squawk();
                 Destroy(transform.parent.gameObject);
-                GameObject particles = Instantiate<GameObject>(featherExplosion, transform.position, transform.rotation);
             }
 		}
 		else
@@ -57,6 +56,19 @@ public class PopOnTouch : MonoBehaviour
                     theBubble.Pop();
                 }
             }
+        }
+    }
+
+    public void Squawk()
+    {
+        // Poof and squawl
+        if (GameManager.instance.featherExplosion != null)
+        {
+            GameObject particles = Instantiate<GameObject>(GameManager.instance.featherExplosion, transform.position, transform.rotation);
+        }
+        if (GameManager.instance.featherSquawk != null)
+        {
+            AudioSource.PlayClipAtPoint(GameManager.instance.featherSquawk, transform.position);
         }
     }
 }

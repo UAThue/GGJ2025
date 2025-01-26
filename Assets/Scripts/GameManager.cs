@@ -19,10 +19,16 @@ public class GameManager : MonoBehaviour
 
     [Header("Prefabs")]
     public ScoreObject scoreObjectPrefab;
-
     private ScoreTimer scoreDisplay;
     public AudioSource menuMusic;
     private float menuMusicTargetVolume=0.5f;
+
+    [Header("Particles and Sounds")]
+    public GameObject featherExplosion;
+    public GameObject bubbleExplosion;
+    public AudioClip featherSquawk;
+    public AudioClip bubblePop;
+
 
     private void Awake()
     {
