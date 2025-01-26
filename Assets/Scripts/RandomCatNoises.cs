@@ -7,6 +7,7 @@ public class RandomCatNoises : MonoBehaviour
 
     private AudioSource audioSource;
     public List<AudioClip> catNoises;
+    public float chancePerFrameDrawToMew = 0.0005f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,7 @@ public class RandomCatNoises : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-            if (Random.value < 0.001f)
+            if (Random.value < chancePerFrameDrawToMew)
             {
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.PlayOneShot(catNoises[Random.Range(0, catNoises.Count)]);
