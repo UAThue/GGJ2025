@@ -73,7 +73,7 @@ public class Bubble : MonoBehaviour
                     SafeLinkSprings(otherBubble);
 
                     // Play our bubble link sound
-                    AudioSource.PlayClipAtPoint(GameManager.instance.bubbleLink, transform.position);
+                    AudioSource.PlayClipAtPoint(GameManager.instance.bubbleLink, transform.position, 2.0f);
 
                     //Create a connection for alter
                     myConnectedBubble = otherBubble;

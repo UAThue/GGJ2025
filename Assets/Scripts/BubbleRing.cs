@@ -212,6 +212,9 @@ public class BubbleRing : Pawn
         // Hide the cat
         cat.SetActive(false);
 
+        // Wilheim Scream
+        AudioSource.PlayClipAtPoint(GameManager.instance.playerDeath, transform.position, 2.0f);
+
         // Wait a bit and then load the GameOver Screen
         Invoke("LoadGameOverScreen", 1.5f); // Yep. I used Invoke. No, I am not proud of it.
 

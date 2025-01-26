@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public AudioClip featherSquawk;
     public AudioClip bubblePop;
     public AudioClip bubbleLink;
+    public AudioClip playerDeath;
 
 
     private void Awake()
