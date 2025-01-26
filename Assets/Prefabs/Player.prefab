@@ -136,7 +136,7 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0, z: 0}
   rotation: 0
   moveForce: 10
-  rotationSpeed: 180
+  rotationSpeed: 220
   bubblePrefab: {fileID: 120848119032034372, guid: 77410ea9bf35c1842883f0bf7feb4815, type: 3}
   cat: {fileID: 5144747995701754436}
   catShadow: {fileID: 547447041415310914}
