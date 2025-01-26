@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BubbleRing : Pawn
 {
@@ -189,6 +190,15 @@ public class BubbleRing : Pawn
 
         // Clear the list 
         ring.Clear();
+
+        // Hide the cat
+
+        // Wait a bit and then load the GameOver Screen
+    }
+
+    public void LoadGameOverScreen()
+    {
+        SceneManager.LoadScene("GameOverScene");
     }
 
 }
