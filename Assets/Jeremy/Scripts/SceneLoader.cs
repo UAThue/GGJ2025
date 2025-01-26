@@ -12,6 +12,8 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(characterScene, LoadSceneMode.Additive);
         SceneManager.LoadScene(spawnerScene, LoadSceneMode.Additive);
+
+        GameManager.instance.StartGame();
     }
 
 }

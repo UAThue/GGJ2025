@@ -5,6 +5,7 @@ using UnityEngine;
 public class PopOnTouch : MonoBehaviour
 {
     public bool wall = false;
+    public int pointValue = 100;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,7 +19,12 @@ public class PopOnTouch : MonoBehaviour
             {
                 // Pop it
                 theBubble.Pop();
-                Destroy(transform.parent.gameObject);
+                GameManager.instance.AddScore(pointValue, transform.position);
+
+                if (transform.parent != null)
+                {
+                    Destroy(transform.parent.gameObject);
+                }
             }
 
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();

@@ -192,8 +192,11 @@ public class BubbleRing : Pawn
         ring.Clear();
 
         // Hide the cat
+        cat.SetActive(false);
 
         // Wait a bit and then load the GameOver Screen
+        Invoke("LoadGameOverScreen", 1.5f); // Yep. I used Invoke. No, I am not proud of it.
+
     }
 
     public void LoadGameOverScreen()

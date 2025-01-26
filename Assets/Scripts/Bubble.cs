@@ -53,8 +53,7 @@ public class Bubble : MonoBehaviour
         joint.connectedBody = rb;
 
         // Activate joint
-        joint.enabled = true;
-        Debug.Log("joint");
+        joint.enabled = true;        
     }
 
 
