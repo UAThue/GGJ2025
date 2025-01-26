@@ -20,7 +20,7 @@ public class UI_ShotIndicator : MonoBehaviour
         spriteHolder.color = new Color(1, 1, 1, 0);
     }
 
-    public void Indicator(ObjectSpawner.spawnShotType shot, float angle)
+    public void Indicator(ObjectSpawner.spawnShotType shot, float angle, float offsetLeftRight)
 	{
         go = true;
         timer = 0;
@@ -40,6 +40,8 @@ public class UI_ShotIndicator : MonoBehaviour
         arrowIndicator.fillAmount = 0;
         arrowIndicator.color = new Color(1, 1, 1, 1);
         this.transform.localEulerAngles = new Vector3(0, 0, angle);
+        arrowIndicator.rectTransform.anchoredPosition = new Vector2(arrowIndicator.rectTransform.anchoredPosition.x, offsetLeftRight*67);
+        spriteHolder.rectTransform.anchoredPosition = new Vector2(spriteHolder.rectTransform.anchoredPosition.x, offsetLeftRight * 67); 
     }
 
 	public void Update()

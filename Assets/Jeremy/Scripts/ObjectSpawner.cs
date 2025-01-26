@@ -23,98 +23,231 @@ public class ObjectSpawner : MonoBehaviour
         neutral
 	}
 
-    //Settings for spawn frequency.
-    public float currentMinSpawnTime;
-    public float currentMaxSpawnTime;
+    //This adds a very small touch of randomness.
+    public float difficulty;
+    public float randomWiggleRoomBubble;
+    private float currentWiggleRoomBubble;
+    public float randomWiggleRoomBird;
+    private float currentWiggleRoomBird;
+    public float randomWiggleRoomCloud;
+    private float currentWiggleRoomCloud;
 
-    //Used to increase difficulty
-    public float lowestPossibleSpawnTime;
-    public float timeBetweenWaveIncreases;
-    public float timeBetweenAmountIncreases;
+    //Keep track of how often things spawn 
+    private float spawnBubbleTimer;
+    private float spawnBirdTimer;
+    private float spawnCloudTimer;
 
-    //Settings for spawning
-    private float currentWaveTimer;
-    private float nextSpawnTimer;
-    private float nextAmountIncreaseTimer;
 
-    //Current difficulty
-    private float spawnTime;
-    private float currentAmount = 1;
+    //Used to separate things
+    private float lastAngle = 0;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawnTime = Random.Range(currentMinSpawnTime, currentMaxSpawnTime);
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentWaveTimer += Time.deltaTime;
-        if(currentWaveTimer>=timeBetweenWaveIncreases)
-		{
-            //Decrease time between wave increases. TODO: BALANCE THIS. 95% is a random decision. Minimum of 3 is a random decision.
-            currentWaveTimer = 0;
-            timeBetweenWaveIncreases *= 0.95f; 
-            if(timeBetweenWaveIncreases<=3)
-			{
-                timeBetweenWaveIncreases = 3;
-			}
-            //Increasing waves makes max and min lower. TODO: BALANCE THIS. 95% is a random decision
-            currentMinSpawnTime *= 0.95f;
-            currentMaxSpawnTime *= 0.95f;
-            if(currentMinSpawnTime<= lowestPossibleSpawnTime)
-			{
-                currentMinSpawnTime = lowestPossibleSpawnTime;
-			}
-            if(currentMaxSpawnTime <= lowestPossibleSpawnTime)
-			{
-                currentMaxSpawnTime = lowestPossibleSpawnTime;
-			}
-        }
-        nextSpawnTimer += Time.deltaTime;
-        if(nextSpawnTimer>=spawnTime)
-		{
-            //Spawn somethin;
-            //Spin the thing, tell the UI to tell the player its gonna spawn something. Then spawn something (which will need to wait for the UI)
-            for(int i = 0; i < currentAmount; i++)
-			{
-                float randAngle = Random.Range(0, 360);
-                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, randAngle);
+        difficulty += Time.deltaTime;
+        spawnBubbleTimer += Time.deltaTime;
+        //EVERY 3 SECONDS  SPAWN A BUBBLE
+        if (spawnBubbleTimer - currentWiggleRoomBubble >= 3)
+        {
+            //RESET TIMER
+            spawnBubbleTimer = 0;
+            //CHANGE WIGGLE ROOM
+            currentWiggleRoomBubble = Random.Range(0, randomWiggleRoomBubble);
+            //ALWAYS SPAWN A BUBBLE
+            GetNextAngle();
+            //Put the spawner in the right spot
+            float randOffset = Random.Range(-2, 2);
+            spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+            spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
+            //Spawn
+            GameObject bubbleSpawned = GameObject.Instantiate(BubbleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+            UIShotIndicatorPool.Shot(spawnShotType.bubble, lastAngle, randOffset);
+            float bubScale = Random.Range(minScaleBubble, maxScaleBubble);
+            bubbleSpawned.transform.localScale = new Vector3(bubScale, bubScale, bubScale);
+
+            //Bubbles change to doubles/triples
+            if (difficulty <= 60)
+            {
+                //Just one bubble.
+                //Do nothing
+            }
+            else if (difficulty <= 120)
+            {
+                //IN ADDITION, SPAWN SOMETHING ELSE
+                GetNextAngle();
+                randOffset = Random.Range(-2, 2);
+                spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
                 //SPAWN
                 int randItem = Random.Range(0, 3);
-                switch(randItem)
-				{
+                switch (randItem)
+                {
                     case 0:
-                        GameObject bubbleSpawned =  GameObject.Instantiate(BubbleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
-                        UIShotIndicatorPool.Shot(spawnShotType.bubble, randAngle);
-                        float bubScale = Random.Range(minScaleBubble, maxScaleBubble);
+                        bubbleSpawned = GameObject.Instantiate(BubbleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                        UIShotIndicatorPool.Shot(spawnShotType.bubble, lastAngle, randOffset);
+                        bubScale = Random.Range(minScaleBubble, maxScaleBubble);
                         bubbleSpawned.transform.localScale = new Vector3(bubScale, bubScale, bubScale);
                         break;
                     case 1:
-                        GameObject needleSpawned  = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
-                        UIShotIndicatorPool.Shot(spawnShotType.needle, randAngle);
+                        GameObject needleSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                        UIShotIndicatorPool.Shot(spawnShotType.needle, lastAngle, randOffset);
                         float needScale = Random.Range(minScaleNeedle, maxScaleNeedle);
                         needleSpawned.transform.localScale = new Vector3(needScale, needScale, needScale);
                         break;
                     case 2:
-                        GameObject neutralSpawned  = GameObject.Instantiate(NeutralProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
-                        UIShotIndicatorPool.Shot(spawnShotType.neutral, randAngle);
+                        GameObject neutralSpawned = GameObject.Instantiate(NeutralProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                        UIShotIndicatorPool.Shot(spawnShotType.neutral, lastAngle, randOffset);
                         float neutScale = Random.Range(minScaleNeutral, maxScaleNeutral);
                         neutralSpawned.transform.localScale = new Vector3(neutScale, neutScale, neutScale);
                         break;
                 }
             }
-            //Reset spawn timer and find a random spawn time
-            spawnTime = Random.Range(currentMinSpawnTime, currentMaxSpawnTime);
-            nextSpawnTimer = 0;
-		}
-        nextAmountIncreaseTimer += Time.deltaTime;
-        if(nextAmountIncreaseTimer>=timeBetweenAmountIncreases)
-		{
-            currentAmount += 1;
-            nextAmountIncreaseTimer = 0;
-		}
+            else
+            {
+                //IN ADDITION, SPAWN TWO SOMETHINGS ELSE
+                GetNextAngle();
+                randOffset = Random.Range(-2, 2);
+                spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
+                //SPAWN SOMETHING RANDOM
+                int randItem = Random.Range(0, 3);
+				switch (randItem)
+				{
+					case 0:
+						bubbleSpawned = GameObject.Instantiate(BubbleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+						UIShotIndicatorPool.Shot(spawnShotType.bubble, lastAngle, randOffset);
+						bubScale = Random.Range(minScaleBubble, maxScaleBubble);
+						bubbleSpawned.transform.localScale = new Vector3(bubScale, bubScale, bubScale);
+						break;
+					case 1:
+						GameObject needleSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+						UIShotIndicatorPool.Shot(spawnShotType.needle, lastAngle, randOffset);
+						float needScale = Random.Range(minScaleNeedle, maxScaleNeedle);
+						needleSpawned.transform.localScale = new Vector3(needScale, needScale, needScale);
+						break;
+					case 2:
+						GameObject neutralSpawned = GameObject.Instantiate(NeutralProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+						UIShotIndicatorPool.Shot(spawnShotType.neutral, lastAngle, randOffset);
+						float neutScale = Random.Range(minScaleNeutral, maxScaleNeutral);
+						neutralSpawned.transform.localScale = new Vector3(neutScale, neutScale, neutScale);
+						break;
+				}
+                //REPEAT
+				GetNextAngle();
+                randOffset = Random.Range(-2, 2);
+                spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
+                //SPAWN ANOTHER RANDOM THING
+                randItem = Random.Range(0, 3);
+                switch (randItem)
+                {
+                    case 0:
+                        bubbleSpawned = GameObject.Instantiate(BubbleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                        UIShotIndicatorPool.Shot(spawnShotType.bubble, lastAngle, randOffset);
+                        bubScale = Random.Range(minScaleBubble, maxScaleBubble);
+                        bubbleSpawned.transform.localScale = new Vector3(bubScale, bubScale, bubScale);
+                        break;
+                    case 1:
+                        GameObject needleSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                        UIShotIndicatorPool.Shot(spawnShotType.needle, lastAngle, randOffset);
+                        float needScale = Random.Range(minScaleNeedle, maxScaleNeedle);
+                        needleSpawned.transform.localScale = new Vector3(needScale, needScale, needScale);
+                        break;
+                    case 2:
+                        GameObject neutralSpawned = GameObject.Instantiate(NeutralProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                        UIShotIndicatorPool.Shot(spawnShotType.neutral, lastAngle, randOffset);
+                        float neutScale = Random.Range(minScaleNeutral, maxScaleNeutral);
+                        neutralSpawned.transform.localScale = new Vector3(neutScale, neutScale, neutScale);
+                        break;
+                }
+            }
+        }
+        //BIRDS START 15 SECONDS IN AND GO EVERY 3.5 SECONDS
+        if (difficulty > 16)
+        {
+            spawnBirdTimer += Time.deltaTime;
+            //EVERY 3 SECONDS  SPAWN A BUBBLE
+            if (spawnBirdTimer - currentWiggleRoomBird >= 3.5f)
+            {
+                //RESET TIMER
+                spawnBirdTimer = 0;
+                //RESET BIRD WIGGLE ROOM
+                currentWiggleRoomBird = Random.Range(0, randomWiggleRoomBird);
+                //CHOOSE NEW ANGLE AND OFFSET
+                GetNextAngle();
+                float randOffset = Random.Range(-1, 1);
+                spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
+                //SPAWN BIRD
+                GameObject birdSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                UIShotIndicatorPool.Shot(spawnShotType.needle, lastAngle, randOffset);
+                float birdScale = Random.Range(minScaleNeedle, maxScaleNeedle);
+                birdSpawned.transform.localScale = new Vector3(birdScale, birdScale, birdScale);
+                //ADD A SECOND BIRD AFTER 80 SECONDS AND A THIRD AFTER 160
+                if (difficulty > 80)
+                {
+                    //DO NOT CHOOSE NEW ANGLE. TRYING TO MAKE FLOCKS OF BIRDS
+                    randOffset = Random.Range(-1, 1);
+                    spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                    //SPAWN BIRD
+                    birdSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                    UIShotIndicatorPool.Shot(spawnShotType.needle, lastAngle, randOffset);
+                    birdScale = Random.Range(minScaleNeedle, maxScaleNeedle);
+                    birdSpawned.transform.localScale = new Vector3(birdScale, birdScale, birdScale);
+                }
+                if (difficulty > 160)
+                {
+                    //DO NOT CHOOSE NEW ANGLE. TRYING TO MAKE FLOCKS OF BIRDS
+                    randOffset = Random.Range(1, 2);
+                    spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                    //SPAWN BIRD
+                    birdSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                    UIShotIndicatorPool.Shot(spawnShotType.needle, lastAngle, randOffset);
+                    birdScale = Random.Range(minScaleNeedle, maxScaleNeedle);
+                    birdSpawned.transform.localScale = new Vector3(birdScale, birdScale, birdScale);
+                }
+            }
+        }
+
+        //CLOUDS START 45 SECONDS IN AND GO EVERY 5 SECONDS
+        if (difficulty > 45)
+        {
+            spawnCloudTimer += Time.deltaTime;
+            //EVERY 6 SECONDS  SPAWN A CLOUD
+            if (spawnCloudTimer - currentWiggleRoomCloud >= 6.25f)
+            {
+                //RESET TIMER
+                spawnCloudTimer = 0;
+                //RESET BIRD WIGGLE ROOM
+                currentWiggleRoomCloud = Random.Range(0, randomWiggleRoomCloud);
+                //CHOOSE NEW ANGLE AND OFFSET
+                GetNextAngle();
+                float randOffset = Random.Range(-2, 2);
+                spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
+                //SPAWN BIRD
+                GameObject cloudSpawned = GameObject.Instantiate(NeutralProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                UIShotIndicatorPool.Shot(spawnShotType.neutral, lastAngle, randOffset);
+                float cloudScale = Random.Range(minScaleNeutral, maxScaleNeutral);
+                cloudSpawned.transform.localScale = new Vector3(cloudScale, cloudScale, cloudScale);
+            }
+        }
+    }
+
+    public void GetNextAngle()
+	{
+        float randAngle = Random.Range(25, 335);
+        lastAngle += randAngle;
+        if (lastAngle > 360)
+        {
+            lastAngle -= 360;
+        }
     }
 }

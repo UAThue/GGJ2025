@@ -57,6 +57,10 @@ MonoBehaviour:
   NeutralProjectilePrefab: {fileID: 807504727016456804, guid: 2e3d78ea4092b86439be3e5889892879, type: 3}
   minScaleNeutral: 0.5
   maxScaleNeutral: 0.7
+  difficulty: 0
+  randomWiggleRoomBubble: 0.2
+  randomWiggleRoomBird: 0.3
+  randomWiggleRoomCloud: 0.4
   currentMinSpawnTime: 3
   currentMaxSpawnTime: 5
   lowestPossibleSpawnTime: 0.5
