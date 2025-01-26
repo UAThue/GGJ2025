@@ -123,6 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59421ce4870986647ab75d3af01ae7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wall: 0
+  pointValue: 100
+  featherExplosion: {fileID: 1461350017251742630, guid: 132ac5e45162a194199eebf74d3fa8b4, type: 3}
 --- !u!1 &2825265353947447993
 GameObject:
   m_ObjectHideFlags: 0

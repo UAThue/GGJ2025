@@ -2332,7 +2332,7 @@ GameObject:
   - component: {fileID: 250884036}
   - component: {fileID: 250884035}
   - component: {fileID: 250884034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,6 +2367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &250884035
 Rigidbody2D:
   serializedVersion: 5
@@ -3441,7 +3443,7 @@ GameObject:
   - component: {fileID: 345767154}
   - component: {fileID: 345767153}
   - component: {fileID: 345767152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3476,6 +3478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &345767153
 Rigidbody2D:
   serializedVersion: 5
@@ -3811,6 +3815,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae0cebc866482c4d8214ab43b36294a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  highScore: 0
+  gameStartTime: 0
+  pointsPerSecondSurvived: 0
+  scoreObjectPrefab: {fileID: 0}
 --- !u!4 &365768184
 Transform:
   m_ObjectHideFlags: 0
@@ -5472,7 +5481,7 @@ GameObject:
   - component: {fileID: 522887799}
   - component: {fileID: 522887798}
   - component: {fileID: 522887797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5507,6 +5516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &522887798
 Rigidbody2D:
   serializedVersion: 5
@@ -6259,7 +6270,7 @@ GameObject:
   - component: {fileID: 615268641}
   - component: {fileID: 615268640}
   - component: {fileID: 615268639}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6294,6 +6305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &615268640
 Rigidbody2D:
   serializedVersion: 5
@@ -10550,7 +10563,7 @@ GameObject:
   - component: {fileID: 993939050}
   - component: {fileID: 993939049}
   - component: {fileID: 993939048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10585,6 +10598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &993939049
 Rigidbody2D:
   serializedVersion: 5
@@ -12483,7 +12498,7 @@ GameObject:
   - component: {fileID: 1183430268}
   - component: {fileID: 1183430267}
   - component: {fileID: 1183430266}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12518,6 +12533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &1183430267
 Rigidbody2D:
   serializedVersion: 5
@@ -15595,7 +15612,7 @@ GameObject:
   - component: {fileID: 1476872224}
   - component: {fileID: 1476872223}
   - component: {fileID: 1476872222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15630,6 +15647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &1476872223
 Rigidbody2D:
   serializedVersion: 5
@@ -18672,7 +18691,7 @@ GameObject:
   - component: {fileID: 1832801916}
   - component: {fileID: 1832801915}
   - component: {fileID: 1832801914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18707,6 +18726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 1
+  pointValue: 100
+  featherExplosion: {fileID: 0}
 --- !u!50 &1832801915
 Rigidbody2D:
   serializedVersion: 5

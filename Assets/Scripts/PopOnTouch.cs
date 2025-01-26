@@ -6,6 +6,7 @@ public class PopOnTouch : MonoBehaviour
 {
     public bool wall = false;
     public int pointValue = 100;
+    public GameObject featherExplosion;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -24,13 +25,16 @@ public class PopOnTouch : MonoBehaviour
                 if (transform.parent != null)
                 {
                     Destroy(transform.parent.gameObject);
+                    GameObject particles = Instantiate<GameObject>(featherExplosion, transform.position, transform.rotation);
                 }
             }
 
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
             if (obstacle != null)
             {
+                Debug.Log("COLLIDED WITH NEUTRAL");
                 Destroy(transform.parent.gameObject);
+                GameObject particles = Instantiate<GameObject>(featherExplosion, transform.position, transform.rotation);
             }
 		}
 		else
