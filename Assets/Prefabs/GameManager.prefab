@@ -56,7 +56,7 @@ MonoBehaviour:
   bubbleExplosion: {fileID: 1348631928614724, guid: 201c82c04ed951941bf7f68e1a07f643, type: 3}
   featherSquawk: {fileID: 8300000, guid: a30f7c6eaf720b249b8b184f3856fa47, type: 3}
   bubblePop: {fileID: 8300000, guid: 5b3d0d6053ae5864ca12d72449cf9eef, type: 3}
-  bubbleLink: {fileID: 8300000, guid: 555f80d4adce4f749b0d737cc158267c, type: 3}
+  bubbleLink: {fileID: 8300000, guid: 79c526a01deb01a4094f580c3e76ee6c, type: 3}
   playerDeath: {fileID: 8300000, guid: 8a7d3b30d61bbc74f9b6b42aabe60acb, type: 3}
 --- !u!114 &3184727917067360864
 MonoBehaviour:
