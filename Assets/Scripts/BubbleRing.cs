@@ -80,7 +80,7 @@ public class BubbleRing : Pawn
         // For every bubble
         for (int i = 0; i < ring.Count; i++)
         {
-            ring[i].transform.RotateAround(currentCenter, Vector3.forward, angle * rotationSpeed * Time.deltaTime);
+            ring[i].transform.RotateAround(currentCenter, Vector3.forward, -angle * rotationSpeed * Time.deltaTime);
         }
         
     }
