@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5784684360288595255}
   - component: {fileID: 7742729699692539355}
   - component: {fileID: -9092364597912599380}
+  - component: {fileID: 3784299055299627361}
   m_Layer: 6
   m_Name: LooseBubble Jeremy
   m_TagString: Untagged
@@ -189,6 +190,19 @@ MonoBehaviour:
   moveSpeed: 60
   myMover: {fileID: 2841996212580546473}
   velocityTest: 0
+--- !u!114 &3784299055299627361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120848119032034372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af14c404ce77f5d4782e4b34f98ca28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleSprite: {fileID: 7609631582502928760}
 --- !u!1 &2544479282033860979
 GameObject:
   m_ObjectHideFlags: 0
