@@ -36,7 +36,7 @@ public class MoveAtSpeed : MonoBehaviour
             }
         }
         destroy += Time.deltaTime;
-        if (destroy > 15 && move == true)
+        if (destroy > 30 && move == true)
         {
             Destroy(this.gameObject);
         }

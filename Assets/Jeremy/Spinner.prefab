@@ -49,14 +49,14 @@ MonoBehaviour:
   spawnSpinner: {fileID: 1169985764852580533}
   spawnPosition: {fileID: 498194203615770982}
   NeedleProjectilePrefab: {fileID: 8148489462575322495, guid: a6a89bee55ec3f74e86c689c0373b9b8, type: 3}
-  minScaleNeedle: 0.2
-  maxScaleNeedle: 0.4
+  minScaleNeedle: 0.45
+  maxScaleNeedle: 0.45
   BubbleProjectilePrefab: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
-  minScaleBubble: 0.3
-  maxScaleBubble: 0.55
+  minScaleBubble: 0.325
+  maxScaleBubble: 0.575
   NeutralProjectilePrefab: {fileID: 807504727016456804, guid: 2e3d78ea4092b86439be3e5889892879, type: 3}
-  minScaleNeutral: 0.3
-  maxScaleNeutral: 0.55
+  minScaleNeutral: 0.5
+  maxScaleNeutral: 0.7
   currentMinSpawnTime: 3
   currentMaxSpawnTime: 5
   lowestPossibleSpawnTime: 0.5
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 5076833533340792630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
