@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a7f93787521aa3a4ab8231c866c9da80
+guid: 09d0aa0190ab04448bf2df8761479215
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -106370267321509185
-    second: BirdParticleFeather_0
+      213: -2182124076254010665
+    second: rock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,32 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BirdParticleFeather_0
+      name: rock_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 43
-        width: 803
-        height: 917
+        x: 419
+        y: 102
+        width: 1962
+        height: 1784
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fba53a13ec8168ef0800000000000000
-      internalID: -106370267321509185
+      spriteID: 7d26d0bc6b987b1e0800000000000000
+      internalID: -2182124076254010665
       vertices: []
       indices: 
       edges: []
@@ -173,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BirdParticleFeather_0: -106370267321509185
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
