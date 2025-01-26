@@ -5,7 +5,7 @@ using UnityEngine;
 public class PopOnTouch : MonoBehaviour
 {
     public bool wall = false;
-    public int pointValue = 100;
+    public int pointValue = 1;
     public GameObject featherExplosion;
 
     public void OnCollisionEnter2D(Collision2D collision)

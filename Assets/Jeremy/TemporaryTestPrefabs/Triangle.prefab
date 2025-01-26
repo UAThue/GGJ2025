@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: 0
-  pointValue: 100
+  pointValue: 1
   featherExplosion: {fileID: 1461350017251742630, guid: 132ac5e45162a194199eebf74d3fa8b4, type: 3}
 --- !u!1 &2430716837066473115
 GameObject:

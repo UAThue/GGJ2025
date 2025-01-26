@@ -15,7 +15,7 @@ public class HueTests : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             GameObject player = FindFirstObjectByType<BubbleRing>().cat;
-            GameManager.instance.AddScore(100, player.transform.position);            
+            GameManager.instance.AddScore(1, player.transform.position);            
         }
     }
 }

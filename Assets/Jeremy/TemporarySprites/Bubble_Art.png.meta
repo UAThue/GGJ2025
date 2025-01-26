@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a01080c7de58ef54a8e596daa7101d7a
+guid: de8db87f944198b49ae57015f5768a15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1840293236442141911
-    second: bunny2_0
+      213: 2059206019672859585
+    second: Bubble_Art_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bunny2_0
+      name: Bubble_Art_0
       rect:
         serializedVersion: 2
-        x: 823
-        y: 501
-        width: 1076
-        height: 1481
+        x: 3
+        y: 4
+        width: 121
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d410b0c2f80a8910800000000000000
-      internalID: 1840293236442141911
+      spriteID: 1c362f9f6f4c39c10800000000000000
+      internalID: 2059206019672859585
       vertices: []
       indices: 
       edges: []
@@ -173,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      bunny2_0: 1840293236442141911
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

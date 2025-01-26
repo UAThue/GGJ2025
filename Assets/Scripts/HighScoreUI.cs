@@ -10,7 +10,8 @@ public class HighScoreUI : MonoBehaviour
     void Start()
     {
         float secondsSinceGameStart = Time.time - GameManager.instance.gameStartTime;
-        GameManager.instance.score += Mathf.CeilToInt(GameManager.instance.pointsPerSecondSurvived * secondsSinceGameStart);
+        int whoa = (int)secondsSinceGameStart;
+        GameManager.instance.score *= whoa;
 
         UpdateHighScore();   
 

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Data")]
-    public int score;
+    public int score=1;
     public int highScore;
     public float gameStartTime;
     public float pointsPerSecondSurvived;
@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Prefabs")]
     public ScoreObject scoreObjectPrefab;
+
+    private ScoreTimer scoreDisplay;
 
     private void Awake()
     {
@@ -46,13 +48,18 @@ public class GameManager : MonoBehaviour
     public void AddScore (int amount, Vector3 location)
     {
         ScoreObject scoreObject = Instantiate(scoreObjectPrefab, location, Quaternion.identity) as ScoreObject;
-        scoreObject.scoreText.text = amount.ToString();
+        scoreObject.scoreText.text = "+1x";
         score += amount;
+        if(scoreDisplay == null)
+		{
+            scoreDisplay = GameObject.FindAnyObjectByType<ScoreTimer>();
+		}
+        scoreDisplay.multiplier.text = string.Format("x{0}", score);
     }
    
     public void StartGame()
     {
-        score = 0;
+        score = 1;
         gameStartTime = Time.time;
     }
 }
