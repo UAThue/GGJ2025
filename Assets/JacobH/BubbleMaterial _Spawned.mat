@@ -20,7 +20,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _BlendOpacity
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -54,12 +54,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AddAlpha: 0.5
-    - _BlendOpacity: 0.15
+    - _AddAlpha: 0.2
+    - _BlendOpacity: 0.5
     - _BlendSharpness: 1
-    - _DivideColor: 0.5
+    - _DivideColor: 1
     - _EnableExternalAlpha: 0
-    - _FresnelPower: 0.3
+    - _FresnelPower: 0
     - _NoiseSubtraction: 0
     - _QueueControl: 0
     - _QueueOffset: 0

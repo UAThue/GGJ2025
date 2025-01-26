@@ -13,6 +13,7 @@ public class GrowFadeAndDie : MonoBehaviour
     private float currentAlpha;
     // Add audio as just an Audio Source
     private Color fadeColor = Color.white;
+    public AudioSource dontDieUntilDone;
    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +21,7 @@ public class GrowFadeAndDie : MonoBehaviour
     {
         currentScale = startScale;
         currentAlpha = startAlpha;
-        Destroy(gameObject.transform.parent.gameObject, lifespan);
+        //Destroy(gameObject.transform.parent.gameObject, lifespan);
     }
 
     // Update is called once per frame
@@ -38,8 +39,14 @@ public class GrowFadeAndDie : MonoBehaviour
         currentAlpha = Mathf.MoveTowards(currentAlpha, endAlpha, -changePerSecond * Time.deltaTime);
         fadeColor = new Color(fadeColor.r, fadeColor.g, fadeColor.b, currentAlpha);
         GetComponent<TMPro.TextMeshProUGUI>().color = fadeColor;
-              
 
-        if (currentScale == endScale) Destroy(transform.parent.gameObject);
+        if (dontDieUntilDone != null)
+        {
+            if (currentScale == endScale && dontDieUntilDone.isPlaying == false) Destroy(transform.parent.gameObject);
+		}
+		else
+		{
+            if (currentScale == endScale) Destroy(transform.parent.gameObject);
+        }
     }
 }
