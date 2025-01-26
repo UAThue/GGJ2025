@@ -18,6 +18,8 @@ public class BubbleRing : Pawn
     public float bubbleThickness = 0.5f;
     [HideInInspector] public bool stickyRing = false;
 
+    public LineRenderer_Rainbow rainbowRing;
+
     // Private Vars
     [HideInInspector] public List<Bubble> ring;
     private Vector3 currentCenter; // Currently the center of the rings - find it every update
@@ -158,10 +160,21 @@ public class BubbleRing : Pawn
             // Add to list
             Bubble theBubble = theBubbleObject.GetComponent<Bubble>();
             theBubble.owningRing = this;
+            theBubble.hadAnOwningRing = true;
             theBubble.isMeStickToOthers = stickyRing;
             theBubble.joint.distance = bubbleThickness;
             theRing.Add(theBubble);
         }
+
+        //JEREMY: Adding transforms for linerenderer test
+        Transform[] transformArray = new Transform[theRing.Count+1];
+        for (int i = 0; i < theRing.Count; i++)
+		{
+            transformArray[i] = theRing[i].transform;
+		}
+        //Add the first again
+        transformArray[theRing.Count] = theRing[0].transform;
+        rainbowRing.SetUpLine(transformArray);
 
         // Send back our list
         return theRing;
@@ -197,6 +210,7 @@ public class BubbleRing : Pawn
         // Wait a bit and then load the GameOver Screen
         Invoke("LoadGameOverScreen", 1.5f); // Yep. I used Invoke. No, I am not proud of it.
 
+        rainbowRing.Done();
     }
 
     public void LoadGameOverScreen()

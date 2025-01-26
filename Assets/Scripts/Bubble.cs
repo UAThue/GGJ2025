@@ -5,6 +5,7 @@ public class Bubble : MonoBehaviour
 {
     public bool isMeStickToOthers;
     [HideInInspector] public BubbleRing owningRing = null;
+    [HideInInspector] public bool hadAnOwningRing = false;
     [HideInInspector] public DistanceJoint2D joint;
     [HideInInspector] public Collider2D collider;
     public GameObject popParticle;

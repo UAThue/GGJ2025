@@ -20,7 +20,13 @@ public class PopOnTouch : MonoBehaviour
             {
                 // Pop it
                 theBubble.Pop();
-                GameManager.instance.AddScore(pointValue, transform.position);
+                if (theBubble.isMeStickToOthers == false)
+                {
+                    if (theBubble.hadAnOwningRing == false)
+                    {
+                        GameManager.instance.AddScore(pointValue, transform.position);
+                    }
+                }
 
                 if (transform.parent != null)
                 {
@@ -32,7 +38,6 @@ public class PopOnTouch : MonoBehaviour
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
             if (obstacle != null)
             {
-                Debug.Log("COLLIDED WITH NEUTRAL");
                 Destroy(transform.parent.gameObject);
                 GameObject particles = Instantiate<GameObject>(featherExplosion, transform.position, transform.rotation);
             }
