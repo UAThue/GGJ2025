@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BirdFlippedShadow_0: -3371783581402827318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

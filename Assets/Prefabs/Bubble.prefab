@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 0.001
-  maxWarble: 0.25
+  maxWarble: 0.35
 --- !u!1 &392962145362645326
 GameObject:
   m_ObjectHideFlags: 0
