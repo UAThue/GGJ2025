@@ -9,6 +9,7 @@ public class UI_ShotIndicator : MonoBehaviour
     public Sprite bubble;
     public Sprite needle;
     public Sprite neutral;
+    public Sprite bunny;
 
     private float timer;
     public bool go;
@@ -47,6 +48,13 @@ public class UI_ShotIndicator : MonoBehaviour
                 spriteHolder.color = Color.white;
                 bg.color = new Color(0.2f, 1, 0.2f, 1);
                 arrowIndicator.color = new Color(0.2f, 1, 0.2f, 1);
+
+                break;
+            case ObjectSpawner.spawnShotType.bunny:
+                spriteHolder.sprite = bunny;
+                spriteHolder.color = Color.white;
+                bg.color = new Color(1, 1, 0.2f, 1);
+                arrowIndicator.color = new Color(1f, 1, 0.2f, 1);
 
                 break;
         }

@@ -54,18 +54,17 @@ MonoBehaviour:
   BubbleProjectilePrefab: {fileID: 120848119032034372, guid: 10b0b02ad47c9004eae15c5b9f79b093, type: 3}
   minScaleBubble: 0.325
   maxScaleBubble: 0.575
-  NeutralProjectilePrefab: {fileID: 807504727016456804, guid: 2e3d78ea4092b86439be3e5889892879, type: 3}
+  NeutralProjectilePrefab: {fileID: 807504727016456804, guid: 8abe29480375a65449d46e1a7c6f129f, type: 3}
   minScaleNeutral: 0.5
   maxScaleNeutral: 0.7
+  bunnyProjectilePrefab: {fileID: 807504727016456804, guid: aec100ac187b2364d82256b554ca7b3d, type: 3}
+  minScaleBunny: 0.45
+  maxScaleBunny: 0.55
   difficulty: 0
   randomWiggleRoomBubble: 0.2
   randomWiggleRoomBird: 0.3
   randomWiggleRoomCloud: 0.4
-  currentMinSpawnTime: 3
-  currentMaxSpawnTime: 5
-  lowestPossibleSpawnTime: 0.5
-  timeBetweenWaveIncreases: 8
-  timeBetweenAmountIncreases: 16
+  randomWiggleRoomBunny: 1
 --- !u!1 &5076833533340792630
 GameObject:
   m_ObjectHideFlags: 0

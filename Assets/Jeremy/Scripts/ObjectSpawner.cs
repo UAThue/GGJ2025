@@ -16,11 +16,16 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject NeutralProjectilePrefab;
     public float minScaleNeutral;
     public float maxScaleNeutral;
+    public GameObject bunnyProjectilePrefab;
+    public float minScaleBunny;
+    public float maxScaleBunny;
+
     public enum spawnShotType
 	{
         bubble,
         needle,
-        neutral
+        neutral,
+        bunny
 	}
 
     //This adds a very small touch of randomness.
@@ -31,11 +36,14 @@ public class ObjectSpawner : MonoBehaviour
     private float currentWiggleRoomBird;
     public float randomWiggleRoomCloud;
     private float currentWiggleRoomCloud;
+    public float randomWiggleRoomBunny;
+    private float currentWiggleRoomBunny;
 
     //Keep track of how often things spawn 
     private float spawnBubbleTimer;
     private float spawnBirdTimer;
     private float spawnCloudTimer;
+    private float spawnBunnyTimer;
 
 
     //Used to separate things
@@ -194,7 +202,7 @@ public class ObjectSpawner : MonoBehaviour
                 if (difficulty > 80)
                 {
                     //DO NOT CHOOSE NEW ANGLE. TRYING TO MAKE FLOCKS OF BIRDS
-                    randOffset = Random.Range(-1, 1);
+                    randOffset = Random.Range(-2, -1);
                     spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
                     //SPAWN BIRD
                     birdSpawned = GameObject.Instantiate(NeedleProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
@@ -237,6 +245,29 @@ public class ObjectSpawner : MonoBehaviour
                 UIShotIndicatorPool.Shot(spawnShotType.neutral, lastAngle, randOffset);
                 float cloudScale = Random.Range(minScaleNeutral, maxScaleNeutral);
                 cloudSpawned.transform.localScale = new Vector3(cloudScale, cloudScale, cloudScale);
+            }
+        }
+        //BUNNIES 1.5 MINUTES IN AND EVERY 15
+        if (difficulty > 90)
+        {
+            spawnBunnyTimer += Time.deltaTime;
+            //EVERY 6 SECONDS  SPAWN A CLOUD
+            if (spawnBunnyTimer - currentWiggleRoomBunny >= 15f)
+            {
+                //RESET TIMER
+                spawnBunnyTimer = 0;
+                //RESET BIRD WIGGLE ROOM
+                currentWiggleRoomBunny = Random.Range(0, randomWiggleRoomBunny);
+                //CHOOSE NEW ANGLE AND OFFSET
+                GetNextAngle();
+                float randOffset = Random.Range(-2, 2);
+                spawnPosition.localPosition = new Vector3(spawnPosition.transform.localPosition.x, randOffset, spawnPosition.transform.localPosition.z);
+                spawnSpinner.transform.localEulerAngles = new Vector3(0, 0, lastAngle);
+                //SPAWN BIRD
+                GameObject bunnySpawned = GameObject.Instantiate(bunnyProjectilePrefab, spawnPosition.position, spawnPosition.rotation);
+                UIShotIndicatorPool.Shot(spawnShotType.bunny, lastAngle, randOffset);
+                float bunnyScale = Random.Range(minScaleBunny, maxScaleBunny);
+                bunnySpawned.transform.localScale = new Vector3(bunnyScale, bunnyScale, bunnyScale);
             }
         }
     }

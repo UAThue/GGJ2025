@@ -125,7 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: 0
   pointValue: 1
-  featherExplosion: {fileID: 1461350017251742630, guid: 132ac5e45162a194199eebf74d3fa8b4, type: 3}
 --- !u!1 &2430716837066473115
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,9 +691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: 1
-  moveSpeed: 55
+  moveSpeed: 3
   myMover: {fileID: -3374219753532837826}
-  velocityTest: 0
 --- !u!50 &-3374219753532837826
 Rigidbody2D:
   serializedVersion: 5

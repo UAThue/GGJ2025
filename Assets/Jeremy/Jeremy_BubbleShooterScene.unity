@@ -308,17 +308,25 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
-      propertyPath: maxScaleNeedle
-      value: 0.45
+      propertyPath: maxScaleBunny
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
-      propertyPath: minScaleNeedle
+      propertyPath: minScaleBunny
       value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
       propertyPath: UIShotIndicatorPool
       value: 
       objectReference: {fileID: 1236920114}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: bunnyProjectilePrefab
+      value: 
+      objectReference: {fileID: 807504727016456804, guid: aec100ac187b2364d82256b554ca7b3d, type: 3}
+    - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
+      propertyPath: randomWiggleRoomBunny
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8333878551027080266, guid: f232a7eb32f58034fbd5f88ed5fd6bce, type: 3}
       propertyPath: NeutralProjectilePrefab
       value: 
@@ -372,6 +380,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 672925373760240105, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 923402730380501022, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 75
@@ -384,6 +396,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 1063134728471251815, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 1225489332197754455, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 90
@@ -428,6 +444,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 1759832124508455481, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
+    - target: {fileID: 1840778696592522906, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 2204437117036475426, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 90
@@ -456,6 +480,18 @@ PrefabInstance:
       propertyPath: bg
       value: 
       objectReference: {fileID: 1655442438}
+    - target: {fileID: 2468566019954298592, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
+    - target: {fileID: 2804250424933055740, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
+    - target: {fileID: 3111314664192696373, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 3786647717638996530, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: 'allIndicators.Array.data[1]'
       value: 
@@ -540,6 +576,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4417879222612427370, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 4556408465618942650, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -828,6 +868,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7457158862273468481, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 7497428731671899095, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -936,6 +980,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8574186636479669613, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
+      propertyPath: bunny
+      value: 
+      objectReference: {fileID: 2829950130260251377, guid: c05dfd0bd3a11854ca1d4f0488ad5bba, type: 3}
     - target: {fileID: 8727117832021695985, guid: a9721b7d12d55524fa70f31d0c3147c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 90

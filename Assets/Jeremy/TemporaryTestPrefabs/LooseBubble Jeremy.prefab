@@ -187,9 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: 1
-  moveSpeed: 60
+  moveSpeed: 1.4
   myMover: {fileID: 2841996212580546473}
-  velocityTest: 0
 --- !u!114 &3784299055299627361
 MonoBehaviour:
   m_ObjectHideFlags: 0

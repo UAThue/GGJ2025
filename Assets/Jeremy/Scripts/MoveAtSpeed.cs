@@ -10,11 +10,10 @@ public class MoveAtSpeed : MonoBehaviour
     private float destroy = 0;
 
     public Rigidbody2D myMover;
-    public bool velocityTest;
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
     delay += Time.deltaTime;
         if (delay > 1)
@@ -23,15 +22,7 @@ public class MoveAtSpeed : MonoBehaviour
             {
                 if (myMover != null)
                 {
-                    if (velocityTest == false)
-                    {
-                        myMover.AddForce(myMover.transform.right * -moveSpeed * Time.deltaTime);
-					}
-					else
-					{
-                        myMover.linearVelocity = (myMover.transform.right * -moveSpeed * Time.deltaTime);
-
-                    }
+                        myMover.linearVelocity = (myMover.transform.right * -moveSpeed);
                 }
             }
         }
