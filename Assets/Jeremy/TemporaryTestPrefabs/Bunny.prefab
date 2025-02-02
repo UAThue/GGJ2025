@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 8084653082663080521}
   - component: {fileID: -2894787798721144620}
   - component: {fileID: -3884379586620870260}
-  - component: {fileID: -1654577945461225599}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,20 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: 1
-  moveSpeed: 12.5
+  moveSpeed: 15
   myMover: {fileID: -2894787798721144620}
---- !u!114 &-1654577945461225599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807504727016456804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9eca353391e1a4787c0127ba8ca97c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &909205507683857785
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4607599332288176883}
   - component: {fileID: 4688821650175694804}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bunny1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3961299300304455035}
   - component: {fileID: 44187154963146245}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4910065267266473011}
   - component: {fileID: 5698080378325778734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bunny1Shadow_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +427,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1699491311128896404}
   - component: {fileID: 7444451328434142947}
-  m_Layer: 8
+  - component: {fileID: 3609795010013621175}
+  - component: {fileID: 8590420385852558803}
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,8 +446,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3447, y: 1.3447, z: 1.3447}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.6999999, y: 1.6999999, z: 1.6999999}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4631818108135041426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -499,6 +488,48 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!50 &3609795010013621175
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164885817164556755}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8590420385852558803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164885817164556755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59421ce4870986647ab75d3af01ae7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: 0
+  bunny: 1
+  pointValue: 5
 --- !u!1 &6726500196059070670
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7513596940646591484}
   - component: {fileID: 5719377619495342769}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bunny2Shadow_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 474193862322872465}
   - component: {fileID: 8830765261860840850}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bunny2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

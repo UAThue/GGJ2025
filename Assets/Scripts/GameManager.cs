@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     public void AddScore (int amount, Vector3 location)
     {
         ScoreObject scoreObject = Instantiate(scoreObjectPrefab, location, Quaternion.identity) as ScoreObject;
-        scoreObject.scoreText.text = "+1x";
+        scoreObject.scoreText.text = string.Format("+{0}x", amount);
         score += amount;
         if(scoreDisplay == null)
 		{

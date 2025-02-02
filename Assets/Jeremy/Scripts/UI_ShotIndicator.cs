@@ -5,6 +5,7 @@ public class UI_ShotIndicator : MonoBehaviour
     public Image spriteHolder;
     public Image bg;
     public Image arrowIndicator;
+    public Image bunnyLine;
 
     public Sprite bubble;
     public Sprite needle;
@@ -21,6 +22,7 @@ public class UI_ShotIndicator : MonoBehaviour
         go = false;
         spriteHolder.color = new Color(1, 1, 1, 0);
         bg.enabled = false;
+        bunnyLine.color = new Color(1, 1, 0.2f, 0f);
     }
 
     public void Indicator(ObjectSpawner.spawnShotType shot, float angle, float offsetLeftRight)
@@ -55,7 +57,7 @@ public class UI_ShotIndicator : MonoBehaviour
                 spriteHolder.color = Color.white;
                 bg.color = new Color(1, 1, 0.2f, 1);
                 arrowIndicator.color = new Color(1f, 1, 0.2f, 1);
-
+                bunnyLine.color = new Color(1, 1, 0.2f, 0.2f);
                 break;
         }
         arrowIndicator.fillAmount = 0;
@@ -64,6 +66,7 @@ public class UI_ShotIndicator : MonoBehaviour
         arrowIndicator.rectTransform.anchoredPosition = new Vector2(arrowIndicator.rectTransform.anchoredPosition.x, offsetLeftRight*67);
         spriteHolder.rectTransform.anchoredPosition = new Vector2(spriteHolder.rectTransform.anchoredPosition.x, offsetLeftRight * 67); 
         bg.rectTransform.anchoredPosition = new Vector2(bg.rectTransform.anchoredPosition.x, offsetLeftRight * 67);
+        bunnyLine.rectTransform.anchoredPosition = new Vector2(bunnyLine.rectTransform.anchoredPosition.x, offsetLeftRight * 67);
     }
 
 	public void Update()
@@ -78,6 +81,7 @@ public class UI_ShotIndicator : MonoBehaviour
                 arrowIndicator.color = new Color(1, 1, 1, 0);
                 go = false;
                 spriteHolder.color = new Color(1, 1, 1, 0);
+                bunnyLine.color = new Color(1, 1, 0.2f, 0f);
                 bg.enabled = false;
             }
 		}

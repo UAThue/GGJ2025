@@ -5,6 +5,7 @@ using UnityEngine;
 public class PopOnTouch : MonoBehaviour
 {
     public bool wall = false;
+    public bool bunny = false;
     public int pointValue = 1;
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -17,6 +18,10 @@ public class PopOnTouch : MonoBehaviour
             // If it is one
             if (theBubble != null)
             {
+                if (bunny == true)
+                {
+                    Debug.Log("bunnyHit");
+                }
                 // Pop it
                 theBubble.Pop();
                 if (theBubble.isMeStickToOthers == false)
@@ -27,7 +32,7 @@ public class PopOnTouch : MonoBehaviour
                     }
                 }
 
-                if (transform.parent != null)
+                if (bunny == false && transform.parent != null)
                 {
                     Squawk();
                     Destroy(transform.parent.gameObject);
