@@ -48,7 +48,7 @@ public class ObjectSpawner : MonoBehaviour
 
     //Used to separate things
     private float lastAngle = 0;
-
+    public float currentTimeModifier = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,8 +59,8 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        difficulty += Time.deltaTime;
-        spawnBubbleTimer += Time.deltaTime;
+        difficulty += Time.deltaTime*currentTimeModifier;
+        spawnBubbleTimer += Time.deltaTime * currentTimeModifier;
         //EVERY 3 SECONDS  SPAWN A BUBBLE
         if (spawnBubbleTimer - currentWiggleRoomBubble >= 3)
         {
@@ -180,7 +180,7 @@ public class ObjectSpawner : MonoBehaviour
         //BIRDS START 15 SECONDS IN AND GO EVERY 3.5 SECONDS
         if (difficulty > 16)
         {
-            spawnBirdTimer += Time.deltaTime;
+            spawnBirdTimer += Time.deltaTime * currentTimeModifier;
             //EVERY 3 SECONDS  SPAWN A BUBBLE
             if (spawnBirdTimer - currentWiggleRoomBird >= 3.5f)
             {
@@ -227,7 +227,7 @@ public class ObjectSpawner : MonoBehaviour
         //CLOUDS START 45 SECONDS IN AND GO EVERY 5 SECONDS
         if (difficulty > 45)
         {
-            spawnCloudTimer += Time.deltaTime;
+            spawnCloudTimer += Time.deltaTime * currentTimeModifier;
             //EVERY 6 SECONDS  SPAWN A CLOUD
             if (spawnCloudTimer - currentWiggleRoomCloud >= 6.25f)
             {
@@ -250,7 +250,7 @@ public class ObjectSpawner : MonoBehaviour
         //BUNNIES 1.5 MINUTES IN AND EVERY 12
         if (difficulty > 90)
         {
-            spawnBunnyTimer += Time.deltaTime;
+            spawnBunnyTimer += Time.deltaTime * currentTimeModifier;
             if (spawnBunnyTimer - currentWiggleRoomBunny >= 13f)
             {
                 //RESET TIMER
@@ -269,6 +269,11 @@ public class ObjectSpawner : MonoBehaviour
                 bunnySpawned.transform.localScale = new Vector3(bunnyScale, bunnyScale, bunnyScale);
             }
         }
+        if(difficulty >180)
+		{
+            //start increasing time modifier.
+            currentTimeModifier += (Time.deltaTime * .0075f);
+		}
     }
 
     public void GetNextAngle()

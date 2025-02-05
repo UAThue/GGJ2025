@@ -69,6 +69,13 @@ public class Bubble : MonoBehaviour
                 // And we stick to bubbles
                 if (isMeStickToOthers)
                 {
+                    //Set to Connected Bubble.
+                    this.gameObject.layer = 11;
+                    foreach (Transform child in transform)
+                    {
+                        child.gameObject.layer = 11;
+                    }
+
                     // Link the joint to the bubble we are connecting to
                     SafeLinkSprings(otherBubble);
 
