@@ -2175,6 +2175,10 @@ PrefabInstance:
       propertyPath: bubbleLink
       value: 
       objectReference: {fileID: 8300000, guid: 0c48736383bc47e44a7e112f428a1e22, type: 3}
+    - target: {fileID: 786866768856285319, guid: 7fe8befdc09234d41994e81be8a8b26b, type: 3}
+      propertyPath: playerDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: d799b0a689fe4f44ead8c3e2c1b738a5, type: 3}
     - target: {fileID: 4038318535040415274, guid: 7fe8befdc09234d41994e81be8a8b26b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 326.93475
